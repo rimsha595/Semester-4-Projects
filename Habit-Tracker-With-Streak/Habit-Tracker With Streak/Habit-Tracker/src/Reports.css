@@ -1,0 +1,65 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar.open {
+    width: 250px;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .nav-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .nav-item.active {
+    background-color: #f0f0f0;
+  }
+  
+  .summary-box {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .habit-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .habit-card.completed {
+    background-color: #e0ffe0;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    margin-right: 10px;
+  }
+  .nav-link {
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+  color: #007bff;
+  border-radius: 0.25rem;
+}
+
+.nav-link.active {
+  color: rgb(126, 65, 196) !important;
+  border-radius: 0.25rem;
+}

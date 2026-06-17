@@ -1,0 +1,279 @@
+/* General Layout */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards; /* Animation for dashboard */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e5e7eb;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden offscreen on mobile */
+  height: 100%;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 0.5s; /* Animation for sidebar */
+}
+
+.sidebar.open {
+  left: 0; /* Sidebar visible */
+}
+
+.logo {
+  background: #b197fc;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.brand-name {
+  font-weight: bold;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+}
+.active{
+  color: #6c63ff;
+}
+.nav-item {
+  padding: 0.6rem 0.8rem;
+  text-decoration: none;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #4b5563;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 1s; /* Animation for nav items */
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #f3f4f6;
+  color: #6c63ff;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 1.5s; /* Animation for user info */
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  background-color: #f9fafb;
+  margin-left: 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 1.5s; /* Animation for main content */
+}
+
+.summary-box {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 2s; /* Animation for summary box */
+}
+
+.summary-box .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.change {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.change.up {
+  color: green;
+}
+
+.change.down {
+  color: red;
+}
+
+/* Habit Cards */
+.habit-card {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 2.5s; /* Animation for habit cards */
+}
+
+.habit-count {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-purple {
+  background-color: #ede9fe;
+  color: #6c63ff;
+}
+
+.badge-blue {
+  background-color: #e0f2fe;
+  color: #3b82f6;
+}
+
+.badge-pink {
+  background-color: #fde2e4;
+  color: #ec4899;
+}
+
+/* Circular Progress Mock */
+.progress-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 3s; /* Animation for progress circles */
+}
+
+.progress-purple {
+  background: conic-gradient(#a78bfa 75%, #e5e7eb 0%);
+  color: #6c63ff;
+}
+
+.progress-blue {
+  background: conic-gradient(#3b82f6 67%, #e5e7eb 0%);
+  color: #3b82f6;
+}
+
+.progress-pink {
+  background: conic-gradient(#ec4899 67%, #e5e7eb 0%);
+  color: #ec4899;
+}
+
+
+.graph-bar .target {
+  height: 10px;
+  background-color: #e0e7ff;
+  width: 100%;
+  border-radius: 6px;
+}
+/* Animation: Fade In */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Add slight movement from the bottom */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  /* Sidebar will be hidden by default on mobile */
+  .sidebar {
+    left: -250px; /* Initially hidden offscreen */
+  }
+
+  /* Toggle Sidebar */
+  .sidebar.open {
+    left: 0; /* Sidebar visible */
+  }
+
+  .main-content {
+    margin-left: 0; /* Adjust content layout when sidebar is closed */
+  }
+
+  /* Mobile toggle button */
+  .sidebar-toggle-btn {
+    display: block;
+  }
+  .DASH{
+    margin-left: 35vw;
+  }
+  .DASH h4{
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Sidebar is always visible on larger screens */
+  .sidebar {
+    position: static;
+    left: 0;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 250px; /* Adjust content to the sidebar */
+  }
+  .sidebar-toggle-btn {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .sidebar-toggle-btn {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 250px;
+  }
+
+  .sidebar {
+    position: static;
+    left: 0;
+    height: auto;
+  }
+}
+@media (max-width: 2000px) {
+  .main-content {
+    margin-left: 0 !important; /* Ensure no offset on smaller devices */
+  }
+}
+
+
+/* Sidebar Toggle Button */
+.sidebar-toggle-btn {
+  z-index: 1100; /* above sidebar */
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #4b5563;
+}
